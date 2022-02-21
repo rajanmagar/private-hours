@@ -114,3 +114,30 @@
     flex-direction: column;
   }
 }
+
+.userImage {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  vertical-align: bottom;
+  margin: 0.5rem 1rem 0.5rem 0;
+  border-radius: 50%;
+}
+
+.chat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chat > span {
+  font-size: 0.7rem;
+  color: rgb(183, 183, 183);
+  align-self: flex-end;
+}
+
+.chatBox {
+  width: 25rem;
+  height: 20rem;
+  overflow: overlay;
+}
