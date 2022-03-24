@@ -35,7 +35,7 @@ const Home = () => {
   const [img, setImg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const router = useRouter()
-  const you = auth.currentUser.uid
+  const you = auth?.currentUser?.uid
   useEffect(() => {
     // if (!user) {
     //   router.push('/login')
