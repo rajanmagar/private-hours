@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { signOut } from 'firebase/auth';
 import { updateDoc, doc } from 'firebase/firestore';
-import { auth, db } from '../pages/firebase';
+import { auth, db } from '../firebase';
 import { AuthContext } from '../context/auth';
 
 const Navbar = () => {

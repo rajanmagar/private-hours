@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import styles from '../styles/profile.module.css';
 import Camera from '../components/svg/camera';
-import { storage, db, auth } from '../pages/firebase';
+import { storage, db, auth } from '../firebase';
 import { ref, getDownloadURL, uploadBytes, deleteObject } from 'firebase/storage';
 import { getDoc, doc, updateDoc } from 'firebase/firestore';
 

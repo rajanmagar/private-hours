@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setDoc, doc, Timestamp } from 'firebase/firestore';
-import { auth, db } from "./firebase";
+import { auth, db } from "../firebase";
 import Layout from '../components/Layout';
 
 const Register = () => {

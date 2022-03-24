@@ -12,7 +12,7 @@ import Layout from '../components/Layout';
 import User from '../components/User';
 import Message from '../components/Message';
 import styles from '../styles/Home.module.css';
-import { db, auth, storage } from './firebase';
+import { db, auth, storage } from '../firebase';
 import MessageForm from '../components/MessageForm';
 
 // const app = initializeApp({
