@@ -11,6 +11,11 @@
   background: var(--color-6);
   min-height: 90vh;
 }
+.main .title {
+  font-size: 9rem;
+  margin: 0;
+  color: var(--color-7);
+}
 
 .footer {
   display: flex;

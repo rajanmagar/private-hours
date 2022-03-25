@@ -9,7 +9,8 @@ const Layout = ({ children }) => {
   return (
     <AuthProvider>
       <Header />
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <h1 className={styles.title}>GitRa.</h1>{children}</main>
       <Footer />
     </AuthProvider>
   );
