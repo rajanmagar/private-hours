@@ -47,7 +47,7 @@ const Profile = () => {
           <section>
             <div className={styles.profileContainer}>
               <div className={styles.imgContainer}>
-                <img src={user.avatar || 'https://media-exp1.licdn.com/dms/image/C4D03AQFOTv_b3uC5oA/profile-displayphoto-shrink_200_200/0/1595729124307?e=1653523200&v=beta&t=D2BslOQzTvIrGTFfjGEd-FySb9HQTUkJq_Xr7d0Tlqg'} alt='avatar' />
+                <img src={user.avatar || 'https://www.pngkey.com/png/detail/950-9501315_katie-notopoulos-katienotopoulos-i-write-about-tech-user.png'} alt='avatar' />
                 <div className={styles.overlay}>
                   <div>
                     <label htmlFor='photo'>

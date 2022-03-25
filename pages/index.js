@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, query, where, onSnapshot, addDoc, Timestamp, orderBy } from 'firebase/firestore';
+import { collection, query, where, onSnapshot, addDoc, Timestamp, orderBy, setDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { useRouter } from 'next/router';
 import { initializeApp } from "firebase/app" // firebase SDK
@@ -37,9 +37,9 @@ const Home = () => {
   const router = useRouter()
   const you = auth?.currentUser?.uid
   useEffect(() => {
-    // if (!user) {
-    //   router.push('/login')
-    // }
+    if (!user) {
+      router.push('/login')
+    }
     const usersRef = collection(db, 'users')
     // create query object to list lout users other then mine
     const q = query(usersRef, where('uid', 'not-in', [you]))
@@ -53,7 +53,7 @@ const Home = () => {
     })
     return () => unsub()
   }, []);
-  const selectUser = (user) => {
+  const selectUser = async (user) => {
     setChat(user)
     const other = user.uid
     const id = you > other ? `${you + other}` : `${other + you}`
@@ -66,6 +66,15 @@ const Home = () => {
       })
       setMsgs(msgs)
     })
+    // get last message between logged in user and selected user
+    const docSnap = await getDoc(doc(db, 'lastMsg', id))
+    // if last message exists and message is from selected user
+    if (docSnap.data() && docSnap.data()?.from !== you) {
+      // update last message doc
+      await updateDoc(doc(db, 'lastMsg', id), {
+        unread: false
+      })
+    }
   }
   const handleSubmit = async e => {
     e.preventDefault()
@@ -86,6 +95,14 @@ const Home = () => {
       createdAt: Timestamp.fromDate(new Date()),
       media: url || ""
     })
+    await setDoc(doc(db, "lastMsg", id), {
+      text,
+      from: you,
+      to: other,
+      createdAt: Timestamp.fromDate(new Date()),
+      media: url || "",
+      unread: true
+    })
     setText("")
   }
   return (
@@ -97,7 +114,7 @@ const Home = () => {
         <div className={styles.homeContainer}>
           <div className={styles.usersContainer}>
             {
-              users.map(user => <User key={user.uid} user={user} selectUser={selectUser} />)
+              users.map(user => <User key={user.uid} user={user} selectUser={selectUser} you={you} chat={chat} />)
             }
           </div>
           <div className={styles.messageContainer}>
