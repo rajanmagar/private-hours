@@ -19,10 +19,10 @@ const Navbar = () => {
   return (
     <nav>
       <h3>
-        <Link href="/">Messenger</Link>
+        <Link href="/">GitRa</Link>
       </h3>
       <div>
-        {user ? <><Link href="/profile">Profile</Link><button onClick={handleSignOut}>Logout</button></> :
+        {user ? <><Link href="/profile">Profile</Link><a onClick={handleSignOut} style={{ cursor: "pointer" }} >Logout</a></> :
           <><Link href="/register">Register</Link>
             <Link href="/login">Login</Link></>}
       </div>

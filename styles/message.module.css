@@ -42,10 +42,10 @@
   text-align: right;
 }
 .me {
-  background: var(--color-3);
-  color: white;
+  background: var(--color-7);
+  color: var(--color-1);
 }
 .friend {
-  background: var(--color-6);
+  background: var(--color-1);
   color: white;
 }

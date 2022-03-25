@@ -18,12 +18,16 @@ const User = ({ user, selectUser, you, chat }) => {
       <div className={styles.userInfo}>
         <div className={styles.userDetail}>
           <img src={user.avatar || 'https://www.pngkey.com/png/detail/950-9501315_katie-notopoulos-katienotopoulos-i-write-about-tech-user.png'} alt="avatar" />
-          <h4>{user.name}</h4>
-          {data?.from !== you && data?.unread && (<small className={styles.unread}>New</small>)}
+          <div>
+            <div>
+              <h4>{user.name}</h4>
+              {data?.from !== you && data?.unread && (<small className={styles.unread}>New</small>)}
+            </div>
+            {data && (<p className={styles.truncate}><strong>{data.from === you ? "Me: " : null}</strong>{data.text}</p>)}
+          </div>
         </div>
         <div className={`${styles.userStatus} ${user.isOnline ? styles.online : styles.offline}`}></div>
       </div>
-      {data && (<p className={styles.truncate}><strong>{data.from === you ? "Me: " : null}</strong>{data.text}</p>)}
     </div>
   );
 }

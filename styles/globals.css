@@ -21,6 +21,7 @@ a {
   --color-4: grey;
   --color-5: #eb4034;
   --color-6: #333;
+  --color-7: #f8dc27;
 }
 nav {
   display: flex;
@@ -32,32 +33,33 @@ nav {
 }
 
 nav a {
-  color: var(--color-2);
+  color: var(--color-7);
   text-decoration: none;
 }
 
 nav div a {
   margin-right: 20px;
+  color: var(--color-2);
 }
 
 section {
   min-width: 500px;
   margin: 0 auto;
-  margin-top: 100px;
-  box-shadow: 1px 2px 10px var(--color-4);
   border-radius: 5px;
 }
 
 section h3 {
   text-align: center;
   font-size: 20px;
-  color: var(--color-4);
+  color: var(--color-2);
 }
 
 section form {
   margin-top: 30px;
   padding: 0 20px;
-  text-align-last: center;
+}
+section form label {
+  color: white;
 }
 
 section form input {
@@ -71,13 +73,13 @@ section form button {
   margin: 10px 0;
   text-align: center;
   padding: 10px;
-  outline: none;
   border-radius: 5px;
-  background-color: var(--color-1);
-  color: var(--color-2);
+  background-color: var(--color-7);
+  color: var(--color-1);
   cursor: pointer;
   transition: 0.3s ease-in-out all;
   font-size: 16px;
+  border-color: var(--color-7);
 }
 
 section form button:hover {

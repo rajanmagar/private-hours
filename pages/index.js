@@ -107,9 +107,6 @@ const Home = () => {
   }
   return (
     <Layout>
-      <h1 className={styles.title}>
-        Welcome to <a href="https://nextjs.org">gitRa</a>
-      </h1>
       <section>
         <div className={styles.homeContainer}>
           <div className={styles.usersContainer}>
